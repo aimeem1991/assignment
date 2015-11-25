@@ -5,7 +5,13 @@ package com.aimeemarianne.assignment2;
  */
 public class election {
 
-    public static void main(String[] args){}
+    public static void main(String[] args){
+
+
+        //jjkijiouhiojil
+
+        
+    }
 
 
 
