@@ -27,14 +27,14 @@ private static void layout(JPanel layout) {
     JLabel username = new JLabel("Username");
     username.setBounds(10, 10, 100, 25);
     layout.add(username);
-    JTextField utext = new JTextField(40);
+    JTextField utext = new JTextField(20);
     utext.setBounds(10, 10, 100, 25);
     layout.add(utext);
 
     JLabel password = new JLabel("Password");
     password.setBounds(10, 10, 100, 25);
     layout.add(password);
-    JTextField ptext = new JTextField(40);
+    JTextField ptext = new JTextField(20);
     ptext.setBounds(10, 10, 100, 25);
     layout.add(ptext);
 
