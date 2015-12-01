@@ -1,5 +1,7 @@
 package com.aimeemarianne.assignment2;
 
+;
+
 import javax.swing.*;
 
 /**
@@ -16,40 +18,36 @@ public class election {
         JPanel panel = new JPanel();
         frame.add(panel);
         layout(panel);
-        frame.setVisible(true);
+        frame.setVisible(true);}
 
 
 private static void layout(JPanel layout) {
 
-        layout.setLayout(null);
 
+    JLabel username = new JLabel("Username");
+    username.setBounds(10, 10, 100, 25);
+    layout.add(username);
+    JTextField utext = new JTextField(40);
+    utext.setBounds(10, 10, 100, 25);
+    layout.add(utext);
 
-        JLabel username = new JLabel("Username");
-        username.setBounds(10, 10, 100, 25);
-        layout.add(username);
-        JTextField utext = new JTextField(40);
-        utext.setBounds(10 ,10, 100, 25);
-        layout.add(utext);
+    JLabel password = new JLabel("Password");
+    password.setBounds(10, 10, 100, 25);
+    layout.add(password);
+    JTextField ptext = new JTextField(40);
+    ptext.setBounds(10, 10, 100, 25);
+    layout.add(ptext);
 
-        JLabel password = new JLabel("Password");
-        password.setBounds(10, 10, 100, 25);
-        layout.add(password);
-        JTextField ptext = new JTextField(40);
-        ptext.setBounds(10, 10, 100, 25);
-        layout.add(ptext);
-
-        JButton login = new JButton("Login");
-        login.setBounds(10, 80, 80, 25);
-        layout.add(login);
-
-
-        BoxLayout boxlayout = new BoxLayout(layout.getContentPane(), BoxLayout.Y_AXIS);
-        layout.setLayout(boxlayout);
-    }
-
-
-
-
-
+    JButton login = new JButton("Login");
+    login.setBounds(10, 80, 80, 25);
+    layout.add(login);
+    login.setVisible(true);}
 
 }
+
+
+
+
+
+
+
