@@ -3,24 +3,25 @@ package com.aimeemarianne.assignment2;
 ;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by mur07114879 on 24/11/2015.
  */
 public class election {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        JFrame frame = new JFrame ("President Election Login");
-        frame.setSize (300, 300);
+        JFrame frame = new JFrame("President Election Login");
+        frame.setSize(300, 300);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
         frame.add(panel);
         layout(panel);
-        frame.setVisible(true);}
-
-
+        panel.setBackground(Color.yellow);
+        frame.setVisible(true);
+    }
 private static void layout(JPanel layout) {
 
 
