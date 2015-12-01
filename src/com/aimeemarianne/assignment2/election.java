@@ -12,7 +12,7 @@ public class election {
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("President Election Login");
+        JFrame frame = new JFrame("PRESIDENT");
         frame.setSize(300, 300);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -25,26 +25,40 @@ public class election {
 private static void layout(JPanel layout) {
 
 
-    JLabel username = new JLabel("Username");
+    JLabel username = new JLabel("USERNAME");
     username.setBounds(10, 10, 100, 25);
     layout.add(username);
     JTextField utext = new JTextField(20);
     utext.setBounds(10, 10, 100, 25);
     layout.add(utext);
 
-    JLabel password = new JLabel("Password");
+    JLabel password = new JLabel("PASSWORD");
     password.setBounds(10, 10, 100, 25);
     layout.add(password);
     JTextField ptext = new JTextField(20);
     ptext.setBounds(10, 10, 100, 25);
     layout.add(ptext);
 
-    JButton login = new JButton("Login");
+    JButton login = new JButton("LOGIN");
     login.setBounds(10, 80, 80, 25);
     layout.add(login);
     login.setVisible(true);}
 
-}
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
 
 
 
