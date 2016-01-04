@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Created by mur07114879 on 24/11/2015.
@@ -24,7 +28,7 @@ public class election {
         panel.setBackground(Color.yellow);
         frame.setVisible(true);
     }
-    
+
 
     private static void layout(JPanel layout) {
 
@@ -51,11 +55,7 @@ public class election {
                 frame.setSize(300, 300);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setVisible(true);
-       sendRequest()
-
-
-
-
+                sendRequest()
 
 
             }
@@ -67,7 +67,36 @@ public class election {
 
 
 
-        public static boolean sendRequest()
+        public static boolean sendRequest() throws Exception {
+
+    String url = "http://impresserve.co.uk/android/json.php";
+
+    URL obj = new URL(url);
+
+    HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+
+    connection.setRequestMethod("GET");
+    int rCode = connection.getResponseCode();
+
+    System.out.println("Response code is......" + rCode);
+
+    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+    String inputLine;
+
+    StringBuffer response = new StringBuffer();
+
+    while ((inputLine = in.readLine()) != null){
+
+        response.append(inputLine);
+    }
+    in.close();
+
+    System.out.println(response.toString());
+
+    parseJson(response.toString());
+
+}
 
 
 
