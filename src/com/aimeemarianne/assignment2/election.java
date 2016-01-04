@@ -14,7 +14,7 @@ public class election {
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("PRESIDENT");
+        JFrame frame = new JFrame("PRESIDENT ELECTION LOGIN");
         frame.setSize(300, 300);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +47,15 @@ public class election {
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("PRESIDENT ELECTION VOTE");
+                frame.setSize(300, 300);
+                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+       sendRequest()
+
+
+
+
 
 
             }
@@ -58,11 +67,11 @@ public class election {
 
 
 
+        public static boolean sendRequest()
 
 
 
-
-    }
+}
 
 
 
