@@ -4,6 +4,8 @@ package com.aimeemarianne.assignment2;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by mur07114879 on 24/11/2015.
@@ -40,11 +42,21 @@ private static void layout(JPanel layout) {
     layout.add(ptext);
 
     JButton login = new JButton("Login");
-    login.setBounds(10, 80, 80, 25);
+    login.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+
+
+                                }
+                            });
+            login.setBounds(10, 80, 80, 25);
     layout.add(login);
     login.setVisible(true);}
 
+
+
 }
+
 
 
 
