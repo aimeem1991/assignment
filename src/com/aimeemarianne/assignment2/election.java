@@ -2,6 +2,9 @@ package com.aimeemarianne.assignment2;
 
 ;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -55,7 +58,8 @@ public class election {
                 frame.setSize(300, 300);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setVisible(true);
-                sendRequest()
+
+                sendRequest();
 
 
             }
@@ -97,6 +101,15 @@ public class election {
     parseJson(response.toString());
 
 }
+    //pass the line to the parse json
+    public static void parseJson(String rawJson) throws JSONException {
+
+        JSONObject obj = new JSONObject(rawJson);
+
+        System.out.println(obj.getString("name"));
+        System.out.println(obj.getInt("age"));
+
+    }
 
 
 
