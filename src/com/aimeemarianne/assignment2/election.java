@@ -19,7 +19,7 @@ import java.net.URL;
  */
 public class election {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         JFrame frame = new JFrame("PRESIDENT ELECTION LOGIN");
         frame.setSize(300, 300);
@@ -58,9 +58,13 @@ public class election {
                 frame.setSize(300, 300);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setVisible(true);
+                try {
+                    boolean test = sendRequest();
+                }
+                catch (Exception i){
 
-                sendRequest();
 
+                }
 
             }
         });
@@ -69,9 +73,7 @@ public class election {
         login.setVisible(true);}
 
 
-
-
-        public static boolean sendRequest() throws Exception {
+    public static boolean sendRequest() throws Exception {
 
     String url = "http://impresserve.co.uk/android/json.php";
 
@@ -99,7 +101,7 @@ public class election {
     System.out.println(response.toString());
 
     parseJson(response.toString());
-
+    return true;
 }
     //pass the line to the parse json
     public static void parseJson(String rawJson) throws JSONException {
