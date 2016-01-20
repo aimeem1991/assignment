@@ -73,7 +73,7 @@ public class election {
         login.setVisible(true);}
 
 
-    public static boolean sendRequest() throws Exception {
+    public static boolean sendRequest(String user, String pass) throws Exception {
 
     String url = "http://impresserve.co.uk/oop/election.php?method=get&username=abc123456";
 
@@ -107,8 +107,9 @@ public class election {
     public static void parseJson(String rawJson) throws JSONException {
 
         JSONObject obj = new JSONObject(rawJson);
+        JSONObject obj2 = obj.getJSONObject("1");
 
-        System.out.println(obj.getString("password"));
+        System.out.println(obj2.getString("pass"));
         
 
     }
