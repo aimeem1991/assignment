@@ -108,7 +108,7 @@ public class election {
 
         JSONObject obj = new JSONObject(rawJson);
 
-        System.out.println(obj.getString("username"));
+        System.out.println(obj.getString("password"));
         
 
     }
