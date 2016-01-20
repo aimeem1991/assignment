@@ -62,7 +62,21 @@ public class election {
 
                     boolean test = sendRequest(utext.getText(), ptext.getText());
 
-                    if true
+                    if 
+                        return true
+
+                        JFrame frame = new JFrame("PRESIDENT VOTE");
+                        frame.setSize(300, 300);
+                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+                        JPanel panel = new JPanel();
+                        frame.add(panel);
+                        layout(panel);
+                        panel.setBackground(Color.blue);
+                        frame.setVisible(true);
+
+
+                        else
 
 
                 }
