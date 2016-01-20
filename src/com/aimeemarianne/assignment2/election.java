@@ -59,7 +59,12 @@ public class election {
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setVisible(true);
                 try {
-                    boolean test = sendRequest();
+
+                    boolean test = sendRequest(utext.getText(), ptext.getText());
+
+                    if true
+
+
                 }
                 catch (Exception i){
 
@@ -75,7 +80,7 @@ public class election {
 
     public static boolean sendRequest(String user, String pass) throws Exception {
 
-    String url = "http://impresserve.co.uk/oop/election.php?method=get&username=abc123456";
+    String url = "http://impresserve.co.uk/oop/election.php?method=get&username="+user;
 
     URL obj = new URL(url);
 
@@ -100,17 +105,28 @@ public class election {
 
     System.out.println(response.toString());
 
-    parseJson(response.toString());
-    return true;
+    boolean check = parseJson(response.toString(), pass);
+        if(check) {
+            return true;
+        }else{
+            return false;
+        }
 }
     //pass the line to the parse json
-    public static void parseJson(String rawJson) throws JSONException {
+    public static boolean parseJson(String rawJson, String pass) throws JSONException {
 
         JSONObject obj = new JSONObject(rawJson);
         JSONObject obj2 = obj.getJSONObject("1");
 
         System.out.println(obj2.getString("pass"));
-        
+
+        if (obj2.getString("pass") == pass){
+
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 
