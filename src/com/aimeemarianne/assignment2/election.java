@@ -75,7 +75,7 @@ public class election {
 
     public static boolean sendRequest() throws Exception {
 
-    String url = "http://impresserve.co.uk/android/json.php";
+    String url = "http://impresserve.co.uk/oop/election.php?method=get&username=abc123456";
 
     URL obj = new URL(url);
 
@@ -108,8 +108,8 @@ public class election {
 
         JSONObject obj = new JSONObject(rawJson);
 
-        System.out.println(obj.getString("name"));
-        System.out.println(obj.getInt("age"));
+        System.out.println(obj.getString("username"));
+        
 
     }
 
