@@ -1,18 +1,19 @@
 package com.aimeemarianne.assignment2;
 
-;
+        ;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+        import org.json.JSONException;
+        import org.json.JSONObject;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+        import javax.swing.*;
+        import java.awt.*;
+        import java.awt.event.ActionEvent;
+        import java.awt.event.ActionListener;
+        import java.io.BufferedReader;
+        import java.io.InputStreamReader;
+        import java.net.HttpURLConnection;
+        import java.net.URL;
+        import javax.swing.ButtonGroup;
 
 /**
  * Created by mur07114879 on 24/11/2015.
@@ -62,10 +63,39 @@ public class election {
 
                     boolean test = sendRequest(utext.getText(), ptext.getText());
 
-                    if 
-                        return true
+                    if(test){
+
+                        //if password is correct
 
                         JFrame frame = new JFrame("PRESIDENT VOTE");
+                        frame.setSize(300, 300);
+                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+                        JPanel panel = new JPanel();
+                        Frame.add(panel);
+                        layout(panel);
+                        panel.setBackground(Color.blue);
+
+
+
+                        ButtonGroup bg1 = new ButtonGroup();
+
+                        bg1.add(Mr Black);
+                        bg1.add(Mrs White);
+                        bg1.add(Mr Yellow);
+                        bg1.add(Mrs Pink);
+
+                        frame.add(bg1);
+
+
+                        frame.setVisible(true);
+
+                    }else{
+
+                        // if not....
+
+
+                        JFrame frame = new JFrame("INCORRECT LOG IN DETAILS");
                         frame.setSize(300, 300);
                         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,11 +105,11 @@ public class election {
                         panel.setBackground(Color.blue);
                         frame.setVisible(true);
 
-
-                        else
-
-
+                    }
                 }
+
+
+
                 catch (Exception i){
 
 
@@ -94,38 +124,38 @@ public class election {
 
     public static boolean sendRequest(String user, String pass) throws Exception {
 
-    String url = "http://impresserve.co.uk/oop/election.php?method=get&username="+user;
+        String url = "http://impresserve.co.uk/oop/election.php?method=get&username="+user;
 
-    URL obj = new URL(url);
+        URL obj = new URL(url);
 
-    HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
-    connection.setRequestMethod("GET");
-    int rCode = connection.getResponseCode();
+        connection.setRequestMethod("GET");
+        int rCode = connection.getResponseCode();
 
-    System.out.println("Response code is......" + rCode);
+        System.out.println("Response code is......" + rCode);
 
-    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-    String inputLine;
+        String inputLine;
 
-    StringBuffer response = new StringBuffer();
+        StringBuffer response = new StringBuffer();
 
-    while ((inputLine = in.readLine()) != null){
+        while ((inputLine = in.readLine()) != null){
 
-        response.append(inputLine);
-    }
-    in.close();
+            response.append(inputLine);
+        }
+        in.close();
 
-    System.out.println(response.toString());
+        System.out.println(response.toString());
 
-    boolean check = parseJson(response.toString(), pass);
+        boolean check = parseJson(response.toString(), pass);
         if(check) {
             return true;
         }else{
             return false;
         }
-}
+    }
     //pass the line to the parse json
     public static boolean parseJson(String rawJson, String pass) throws JSONException {
 
@@ -143,17 +173,3 @@ public class election {
         }
 
     }
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
