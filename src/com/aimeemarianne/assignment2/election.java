@@ -30,7 +30,7 @@ public class election {
         JPanel panel = new JPanel();
         frame.add(panel);
         layout(panel);
-        panel.setBackground(Color.white);
+        panel.setBackground(Color.orange);
         frame.setVisible(true);
     }
 
