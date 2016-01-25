@@ -55,10 +55,7 @@ public class election {
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("PRESIDENT ELECTION VOTE");
-                frame.setSize(300, 300);
-                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setVisible(true);
+
                 try {
 
                     boolean test = sendRequest(utext.getText(), ptext.getText());
@@ -67,18 +64,24 @@ public class election {
 
                         //if password is correct
 
-                        displayVoteForm();
+                        displayVoteForm(utext.getText());
 
                     } else {
 
                         // if not....
-
+                        JFrame frame = new JFrame("PRESIDENT ELECTION VOTE");
+                        frame.setSize(300, 300);
+                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                        JPanel panel = new JPanel();
+                        frame.add(panel);
+                        layout(panel);
+                        panel.setBackground(Color.blue);
+                        frame.setVisible(true);
 
                         JFrame frame2 = new JFrame("INCORRECT LOG IN DETAILS");
                         frame2.setSize(300, 300);
                         frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-                        JPanel panel = new JPanel();
                         frame2.add(panel);
                         layout(panel);
                         panel.setBackground(Color.blue);
@@ -150,9 +153,11 @@ public class election {
 
     }
 
-    public static void displayVoteForm(){
+    public static void displayVoteForm(String username){
 
         JFrame frame1 = new JFrame("PRESIDENT VOTE");
+        BoxLayout boxLayout = new BoxLayout(frame1.getContentPane(),BoxLayout.Y_AXIS);
+        frame1.setLayout(boxLayout);
         frame1.setSize(300, 300);
         frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,26 +170,56 @@ public class election {
         JRadioButton option1 = new JRadioButton("Jack");
         JRadioButton option2 = new JRadioButton("Harry");
         JRadioButton option3 = new JRadioButton("Dylan");
-        JRadioButton option4 = new JRadioButton("Fred");
 
         bg1.add(option1);
         bg1.add(option2);
         bg1.add(option3);
-        bg1.add(option4);
 
         panel1.add(option1);
         panel1.add(option2);
         panel1.add(option3);
-        panel1.add(option4);
 
-        
+        JButton Submit = new JButton("Submit");
 
         frame1.add(panel1);
-
+        frame1.add(Submit);
         frame1.setVisible(true);
 
+        Submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try {
 
 
-    }
+                    boolean test = sendRequest(username, "cghbgh");
+                    System.out.println(test);
+                    if (test) {
 
-}
+                        //if password is correct
+
+
+                    } else {
+
+                        // if not....
+
+
+                    }
+
+
+                    frame1.add(panel1);
+                    frame1.add(Submit);
+                    {
+                        frame1.setVisible(true);
+
+
+                    }
+
+                } catch (Exception p) {
+
+
+                }
+            }
+
+});
+    };}
