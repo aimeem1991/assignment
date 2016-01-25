@@ -14,6 +14,7 @@ package com.aimeemarianne.assignment2;
         import java.net.HttpURLConnection;
         import java.net.URL;
         import javax.swing.ButtonGroup;
+        import javax.swing.JTextArea;
 
 /**
  * Created by mur07114879 on 24/11/2015.
@@ -69,23 +70,9 @@ public class election {
                     } else {
 
                         // if not....
-                        JFrame frame = new JFrame("PRESIDENT ELECTION VOTE");
-                        frame.setSize(300, 300);
-                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                        JPanel panel = new JPanel();
-                        frame.add(panel);
-                        layout(panel);
-                        panel.setBackground(Color.blue);
-                        frame.setVisible(true);
 
-                        JFrame frame2 = new JFrame("INCORRECT LOG IN DETAILS");
-                        frame2.setSize(300, 300);
-                        frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-                        frame2.add(panel);
-                        layout(panel);
-                        panel.setBackground(Color.blue);
-                        frame2.setVisible(true);
+                        displayError();
 
                     }
                 } catch (Exception i) {
@@ -128,7 +115,7 @@ public class election {
 
         System.out.println(response.toString());
 
-           return true;
+        return true;
 
 
     }
@@ -179,17 +166,22 @@ public class election {
 
         if (obj2.getString("pass").equals(pass)) {
 
-            return true;
+            boolean check = true;
+            if (obj2.getInt("voted") != 0) {
+
+                check = false;
+            }
+            return check;
         } else {
             return false;
         }
 
     }
 
-    public static void displayVoteForm(String username){
+    public static void displayVoteForm(String username) {
 
         JFrame frame1 = new JFrame("PRESIDENT VOTE");
-        BoxLayout boxLayout = new BoxLayout(frame1.getContentPane(),BoxLayout.Y_AXIS);
+        BoxLayout boxLayout = new BoxLayout(frame1.getContentPane(), BoxLayout.Y_AXIS);
         frame1.setLayout(boxLayout);
         frame1.setSize(300, 300);
         frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -222,29 +214,28 @@ public class election {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selected = 0;
-             String radioText = "";
+                String radioText = "";
 
                 if (option1.isSelected()) {
                     selected = 1;
                 }
 
-                    if (option2.isSelected()) {
-                        selected = 2;
-                    }
+                if (option2.isSelected()) {
+                    selected = 2;
+                }
 
-                        if (option3.isSelected()) {
-                            selected = 3;
-                        }
+                if (option3.isSelected()) {
+                    selected = 3;
+                }
 
-                    {
-                        frame1.setVisible(true);
-                    }
-                try{
+                {
+                    frame1.setVisible(true);
+                }
+                try {
 
                     sendVote(username, selected);
 
-                }
-                catch (Exception p) {
+                } catch (Exception p) {
                 }
                 JFrame frame3 = new JFrame("Vote Submitted");
                 frame3.setSize(300, 300);
@@ -256,5 +247,22 @@ public class election {
                 frame3.setVisible(true);
             }
 
-});
-    };}
+        });
+    }
+
+    public static void displayError() {
+
+        JFrame frame2 = new JFrame("AN ERROR OCCURED!");
+        frame2.setSize(300, 300);
+        frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        JPanel panel4 = new JPanel();
+        panel4.setBackground(Color.blue);
+        frame2.add(panel4);
+        panel4.setBackground(Color.blue);
+        JTextArea ta = new JTextArea("An error occured while trying to log you in. This could be because you have already voted or incorrect login details.");
+        ta.setFont(new Font("Serif", Font.PLAIN, 14));
+        frame2.add(ta);
+        ta.setLineWrap(true);
+        frame2.setVisible(true);
+    }
+}
