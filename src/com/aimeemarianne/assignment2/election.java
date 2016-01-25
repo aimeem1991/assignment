@@ -63,17 +63,13 @@ public class election {
                     System.out.println(test);
                     if (test) {
 
-                        //if password is correct
+                        //if password is correct display the voting form
 
                         displayVoteForm(utext.getText());
-
                     } else {
 
-                        // if not....
-
-
+                        // if password is incorrect display the error form
                         displayError();
-
                     }
                 } catch (Exception i) {
 
@@ -90,7 +86,7 @@ public class election {
 
     public static boolean sendVote(String user, int vote) throws Exception {
 
-        String url = "http://impresserve.co.uk/oop/election.php?method=set&username=abc123456&vote=1" + user + vote;
+        String url = "http://impresserve.co.uk/oop/election.php?method=set&username="+user+"&vote="+vote;
 
         URL obj = new URL(url);
 
@@ -189,27 +185,32 @@ public class election {
         JPanel panel1 = new JPanel();
         panel1.setBackground(Color.blue);
 
-
+        //button group for the radio buttons. this is for the voting
         ButtonGroup bg1 = new ButtonGroup();
 
         JRadioButton option1 = new JRadioButton("Jack");
         JRadioButton option2 = new JRadioButton("Harry");
         JRadioButton option3 = new JRadioButton("Dylan");
 
+        //adding the radio buttons to the button group
         bg1.add(option1);
         bg1.add(option2);
         bg1.add(option3);
 
+        //adding the radio buttons to the panel
         panel1.add(option1);
         panel1.add(option2);
         panel1.add(option3);
 
+        //creating the submit button for users to submit vote
         JButton Submit = new JButton("Submit");
 
         frame1.add(panel1);
         frame1.add(Submit);
         frame1.setVisible(true);
         frame1.add(panel1);
+
+        //action listener selects radio button which is selected 
         Submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -253,7 +254,7 @@ public class election {
     }
 
     public static void displayError() {
-// displays the error for the wrong password and if the user has already voted
+        // displays the error for the wrong password and if the user has already voted
         JFrame frame2 = new JFrame("AN ERROR OCCURED!");
         frame2.setSize(300, 300);
         frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -262,7 +263,7 @@ public class election {
         frame2.setBackground(Color.white);
         //changes the background colour
 
-
+        //added text area for error message
         JTextArea ta = new JTextArea("An error occured while trying to log you in. This could be because you have already voted or incorrect login details.");
         ta.setFont(new Font("Serif", Font.PLAIN, 14));
         frame2.add(ta);
