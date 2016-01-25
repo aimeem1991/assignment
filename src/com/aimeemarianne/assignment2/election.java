@@ -22,7 +22,7 @@ package com.aimeemarianne.assignment2;
 public class election {
 
     public static void main(String[] args) throws Exception {
-
+        //frame for login form with appropriate layout
         JFrame frame = new JFrame("PRESIDENT ELECTION LOGIN");
         frame.setSize(300, 300);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -34,7 +34,7 @@ public class election {
         frame.setVisible(true);
     }
 
-
+        //layout for login details
     private static void layout(JPanel layout) {
 
 
@@ -52,6 +52,7 @@ public class election {
         ptext.setBounds(10, 10, 100, 25);
         layout.add(ptext);
 
+        //adding login button with action listener which identifies if login details are correct
         JButton login = new JButton("Login");
         login.addActionListener(new ActionListener() {
             @Override
@@ -83,7 +84,7 @@ public class election {
         login.setVisible(true);
     }
 
-
+        //identifies if the user has already voted or not
     public static boolean sendVote(String user, int vote) throws Exception {
 
         String url = "http://impresserve.co.uk/oop/election.php?method=set&username="+user+"&vote="+vote;
@@ -173,7 +174,7 @@ public class election {
         }
 
     }
-
+        //voting form so users can vote with appropriate layout
     public static void displayVoteForm(String username) {
 
         JFrame frame1 = new JFrame("PRESIDENT VOTE");
@@ -199,15 +200,18 @@ public class election {
 
         //adding the radio buttons to the panel
         JLabel label = new JLabel();
-        label.setIcon(new ImageIcon("robert"));
+        label.setIcon(new ImageIcon("robert.jpg"));
+        panel1.add(label);
         panel1.add(option1);
 
         JLabel label1 = new JLabel();
-        label1.setIcon(new ImageIcon("le"));
+        label1.setIcon(new ImageIcon("le.png"));
+        panel1.add(label1);
         panel1.add(option2);
 
         JLabel label2 = new JLabel();
-        label2.setIcon(new ImageIcon("daniel"));
+        label2.setIcon(new ImageIcon("daniel.jpg"));
+        panel1.add(label2);
         panel1.add(option3);
 
         //creating the submit button for users to submit vote
