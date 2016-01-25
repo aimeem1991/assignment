@@ -63,19 +63,18 @@ public class election {
 
                     boolean test = sendRequest(utext.getText(), ptext.getText());
 
-                    if(test){
+                    if (test) {
 
                         //if password is correct
 
-                        JFrame frame = new JFrame("PRESIDENT VOTE");
-                        frame.setSize(300, 300);
-                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                        JFrame frame1 = new JFrame("PRESIDENT VOTE");
+                        frame1.setSize(300, 300);
+                        frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
                         JPanel panel = new JPanel();
-                        Frame.add(panel);
+                        frame1.add(panel);
                         layout(panel);
                         panel.setBackground(Color.blue);
-
 
 
                         ButtonGroup bg1 = new ButtonGroup();
@@ -95,27 +94,23 @@ public class election {
 
                         frame.setVisible(true);
 
-                    }else{
+                    } else {
 
                         // if not....
 
 
-                        JFrame frame = new JFrame("INCORRECT LOG IN DETAILS");
-                        frame.setSize(300, 300);
-                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                        JFrame frame2 = new JFrame("INCORRECT LOG IN DETAILS");
+                        frame2.setSize(300, 300);
+                        frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
                         JPanel panel = new JPanel();
-                        frame.add(panel);
+                        frame2.add(panel);
                         layout(panel);
                         panel.setBackground(Color.blue);
-                        frame.setVisible(true);
+                        frame2.setVisible(true);
 
                     }
-                }
-
-
-
-                catch (Exception i){
+                } catch (Exception i) {
 
 
                 }
@@ -124,12 +119,13 @@ public class election {
         });
         login.setBounds(10, 80, 80, 25);
         layout.add(login);
-        login.setVisible(true);}
+        login.setVisible(true);
+    }
 
 
     public static boolean sendRequest(String user, String pass) throws Exception {
 
-        String url = "http://impresserve.co.uk/oop/election.php?method=get&username="+user;
+        String url = "http://impresserve.co.uk/oop/election.php?method=get&username=" + user;
 
         URL obj = new URL(url);
 
@@ -146,7 +142,7 @@ public class election {
 
         StringBuffer response = new StringBuffer();
 
-        while ((inputLine = in.readLine()) != null){
+        while ((inputLine = in.readLine()) != null) {
 
             response.append(inputLine);
         }
@@ -155,12 +151,13 @@ public class election {
         System.out.println(response.toString());
 
         boolean check = parseJson(response.toString(), pass);
-        if(check) {
+        if (check) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
+
     //pass the line to the parse json
     public static boolean parseJson(String rawJson, String pass) throws JSONException {
 
@@ -169,12 +166,12 @@ public class election {
 
         System.out.println(obj2.getString("pass"));
 
-        if (obj2.getString("pass") == pass){
+        if (obj2.getString("pass") == pass) {
 
             return true;
-        }
-        else{
+        } else {
             return false;
         }
 
     }
+}
