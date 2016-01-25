@@ -101,6 +101,37 @@ public class election {
     }
 
 
+    public static boolean sendVote(String user, int vote) throws Exception {
+
+        String url = "http://impresserve.co.uk/oop/election.php?method=set&username=abc123456&vote=1" + user + vote;
+
+        URL obj = new URL(url);
+
+        HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+
+        connection.setRequestMethod("GET");
+        int rCode = connection.getResponseCode();
+
+        System.out.println("Response code is......" + rCode);
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+        String inputLine;
+
+        StringBuffer response = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+
+            response.append(inputLine);
+        }
+        in.close();
+
+        System.out.println(response.toString());
+
+           return true;
+
+    }
+
     public static boolean sendRequest(String user, String pass) throws Exception {
 
         String url = "http://impresserve.co.uk/oop/election.php?method=get&username=" + user;
@@ -135,6 +166,7 @@ public class election {
             return false;
         }
     }
+
 
     //pass the line to the parse json
     public static boolean parseJson(String rawJson, String pass) throws JSONException {
@@ -184,40 +216,34 @@ public class election {
         frame1.add(panel1);
         frame1.add(Submit);
         frame1.setVisible(true);
-
+        frame1.add(panel1);
         Submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int selected = 0;
+             String radioText = "";
 
-                try {
+                if (option1.isSelected()) {
+                    selected = 1;
+                }
 
-
-                    boolean test = sendRequest(username, "cghbgh");
-                    System.out.println(test);
-                    if (test) {
-
-                        //if password is correct
-
-
-                    } else {
-
-                        // if not....
-
-
+                    if (option2.isSelected()) {
+                        selected = 2;
                     }
 
+                        if (option3.isSelected()) {
+                            selected = 3;
+                        }
 
-                    frame1.add(panel1);
-                    frame1.add(Submit);
                     {
                         frame1.setVisible(true);
-
-
                     }
+                try{
 
-                } catch (Exception p) {
+                    sendVote(username, selected);
 
-
+                }
+                catch (Exception p) {
                 }
             }
 
