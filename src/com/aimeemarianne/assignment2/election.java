@@ -243,7 +243,9 @@ public class election {
                 JLabel label = new JLabel("Your vote has been successfully submitted!!! :)");
                 label.setFont(new Font("Serif", Font.PLAIN, 14));
                 frame3.add(label);
-                frame3.setBackground(Color.blue);
+                frame3.setBackground(Color.white);
+                frame3.setForeground(Color.orange);
+
                 frame3.setVisible(true);
             }
 
@@ -256,9 +258,10 @@ public class election {
         frame2.setSize(300, 300);
         frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel panel4 = new JPanel();
-        panel4.setBackground(Color.blue);
         frame2.add(panel4);
-        panel4.setBackground(Color.blue);
+        frame2.setBackground(Color.white);
+
+
         JTextArea ta = new JTextArea("An error occured while trying to log you in. This could be because you have already voted or incorrect login details.");
         ta.setFont(new Font("Serif", Font.PLAIN, 14));
         frame2.add(ta);
