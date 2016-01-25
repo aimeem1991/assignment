@@ -130,6 +130,7 @@ public class election {
 
            return true;
 
+
     }
 
     public static boolean sendRequest(String user, String pass) throws Exception {
@@ -245,6 +246,14 @@ public class election {
                 }
                 catch (Exception p) {
                 }
+                JFrame frame = new JFrame("Vote Submitted");
+                frame.setSize(300, 300);
+                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                JPanel panel = new JPanel();
+                frame.add(panel);
+                layout(panel);
+                panel.setBackground(Color.blue);
+                frame.setVisible(true);
             }
 
 });
