@@ -198,21 +198,28 @@ public class election {
         bg1.add(option2);
         bg1.add(option3);
 
-        //adding the radio buttons to the panel
+        //adding the radio buttons to the panels with images attatched
         JLabel label = new JLabel();
+        JPanel test1 = new JPanel();
         label.setIcon(new ImageIcon("robert.jpg"));
-        panel1.add(label);
-        panel1.add(option1);
+        test1.add(label);
+        test1.add(option1);
+        panel1.add(test1);
 
+        JPanel test2 = new JPanel();
         JLabel label1 = new JLabel();
         label1.setIcon(new ImageIcon("le.png"));
-        panel1.add(label1);
-        panel1.add(option2);
+        test2.add(label1);
+        test2.add(option2);
+        panel1.add(test2);
 
+        JPanel test3 = new JPanel();
         JLabel label2 = new JLabel();
         label2.setIcon(new ImageIcon("daniel.jpg"));
-        panel1.add(label2);
-        panel1.add(option3);
+        test3.add(label2);
+        test3.add(option3);
+        panel1.add(test3);
+        
 
         //creating the submit button for users to submit vote
         JButton Submit = new JButton("Submit");
