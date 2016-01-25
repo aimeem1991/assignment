@@ -30,7 +30,7 @@ public class election {
         JPanel panel = new JPanel();
         frame.add(panel);
         layout(panel);
-        panel.setBackground(Color.yellow);
+        panel.setBackground(Color.white);
         frame.setVisible(true);
     }
 
@@ -253,13 +253,14 @@ public class election {
     }
 
     public static void displayError() {
-
+// displays the error for the wrong password and if the user has already voted
         JFrame frame2 = new JFrame("AN ERROR OCCURED!");
         frame2.setSize(300, 300);
         frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel panel4 = new JPanel();
         frame2.add(panel4);
         frame2.setBackground(Color.white);
+        //changes the background colour
 
 
         JTextArea ta = new JTextArea("An error occured while trying to log you in. This could be because you have already voted or incorrect login details.");
