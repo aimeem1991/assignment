@@ -62,37 +62,12 @@ public class election {
                 try {
 
                     boolean test = sendRequest(utext.getText(), ptext.getText());
-
+                    System.out.println(test);
                     if (test) {
 
                         //if password is correct
 
-                        JFrame frame1 = new JFrame("PRESIDENT VOTE");
-                        frame1.setSize(300, 300);
-                        frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-                        JPanel panel = new JPanel();
-                        frame1.add(panel);
-                        layout(panel);
-                        panel.setBackground(Color.blue);
-
-
-                        ButtonGroup bg1 = new ButtonGroup();
-
-                        JRadioButton option1 = new JRadioButton("Jack");
-                        JRadioButton option2 = new JRadioButton("Harry");
-                        JRadioButton option3 = new JRadioButton("Dylan");
-                        JRadioButton option4 = new JRadioButton("Fred");
-
-                        bg1.add(option1);
-                        bg1.add(option2);
-                        bg1.add(option3);
-                        bg1.add(option4);
-
-                        frame.add(bg1);
-
-
-                        frame.setVisible(true);
+                        displayVoteForm();
 
                     } else {
 
@@ -166,7 +141,7 @@ public class election {
 
         System.out.println(obj2.getString("pass"));
 
-        if (obj2.getString("pass") == pass) {
+        if (obj2.getString("pass").equals(pass)) {
 
             return true;
         } else {
@@ -174,4 +149,42 @@ public class election {
         }
 
     }
+
+    public static void displayVoteForm(){
+
+        JFrame frame1 = new JFrame("PRESIDENT VOTE");
+        frame1.setSize(300, 300);
+        frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        JPanel panel1 = new JPanel();
+        panel1.setBackground(Color.blue);
+
+
+        ButtonGroup bg1 = new ButtonGroup();
+
+        JRadioButton option1 = new JRadioButton("Jack");
+        JRadioButton option2 = new JRadioButton("Harry");
+        JRadioButton option3 = new JRadioButton("Dylan");
+        JRadioButton option4 = new JRadioButton("Fred");
+
+        bg1.add(option1);
+        bg1.add(option2);
+        bg1.add(option3);
+        bg1.add(option4);
+
+        panel1.add(option1);
+        panel1.add(option2);
+        panel1.add(option3);
+        panel1.add(option4);
+
+        
+
+        frame1.add(panel1);
+
+        frame1.setVisible(true);
+
+
+
+    }
+
 }
