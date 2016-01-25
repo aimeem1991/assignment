@@ -198,8 +198,16 @@ public class election {
         bg1.add(option3);
 
         //adding the radio buttons to the panel
+        JLabel label = new JLabel();
+        label.setIcon(new ImageIcon("robert"));
         panel1.add(option1);
+
+        JLabel label1 = new JLabel();
+        label1.setIcon(new ImageIcon("le"));
         panel1.add(option2);
+
+        JLabel label2 = new JLabel();
+        label2.setIcon(new ImageIcon("daniel"));
         panel1.add(option3);
 
         //creating the submit button for users to submit vote
@@ -210,7 +218,7 @@ public class election {
         frame1.setVisible(true);
         frame1.add(panel1);
 
-        //action listener selects radio button which is selected 
+        //action listener which identifies radio button which is selected
         Submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -233,11 +241,12 @@ public class election {
                     frame1.setVisible(true);
                 }
                 try {
-
+                    //sends vote and username to server
                     sendVote(username, selected);
 
                 } catch (Exception p) {
                 }
+                //if a radio button is selected and submitted, this directs user to form to state submission was successful
                 JFrame frame3 = new JFrame("Vote Submitted");
                 frame3.setSize(300, 300);
                 frame3.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -254,7 +263,7 @@ public class election {
     }
 
     public static void displayError() {
-        // displays the error for the wrong password and if the user has already voted
+        // displays error frame if user has already voted or incorrect password
         JFrame frame2 = new JFrame("AN ERROR OCCURED!");
         frame2.setSize(300, 300);
         frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
