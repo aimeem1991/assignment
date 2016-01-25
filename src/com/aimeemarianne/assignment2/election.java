@@ -80,10 +80,15 @@ public class election {
 
                         ButtonGroup bg1 = new ButtonGroup();
 
-                        bg1.add(Mr Black);
-                        bg1.add(Mrs White);
-                        bg1.add(Mr Yellow);
-                        bg1.add(Mrs Pink);
+                        JRadioButton option1 = new JRadioButton("Jack");
+                        JRadioButton option2 = new JRadioButton("Harry");
+                        JRadioButton option3 = new JRadioButton("Dylan");
+                        JRadioButton option4 = new JRadioButton("Fred");
+
+                        bg1.add(option1);
+                        bg1.add(option2);
+                        bg1.add(option3);
+                        bg1.add(option4);
 
                         frame.add(bg1);
 
