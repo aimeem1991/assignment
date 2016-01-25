@@ -246,14 +246,14 @@ public class election {
                 }
                 catch (Exception p) {
                 }
-                JFrame frame = new JFrame("Vote Submitted");
-                frame.setSize(300, 300);
-                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                JPanel panel = new JPanel();
-                frame.add(panel);
-                layout(panel);
-                panel.setBackground(Color.blue);
-                frame.setVisible(true);
+                JFrame frame3 = new JFrame("Vote Submitted");
+                frame3.setSize(300, 300);
+                frame3.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                JLabel label = new JLabel("Your vote has been successfully submitted!!! :)");
+                label.setFont(new Font("Serif", Font.PLAIN, 14));
+                frame3.add(label);
+                frame3.setBackground(Color.blue);
+                frame3.setVisible(true);
             }
 
 });
